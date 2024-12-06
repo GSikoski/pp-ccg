@@ -4,8 +4,8 @@ extends Node2D
 const CARD_SCENE_PATH = "res://Scenes/card.tscn"
 var PLAYER_HAND = []
 var SCREEN_CENTER_X
-var CARD_WIDTH = 200
-var HAND_Y_POSITION = 890 
+var CARD_WIDTH = 260
+var HAND_Y_POSITION = 850
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,8 +32,8 @@ func update_hand_positions():
 		animate_card_to_position(card, new_position)
 
 func calculate_card_position(index):
-	var x_offset = (PLAYER_HAND.size() - 1 * CARD_WIDTH) 
-	var x_position = SCREEN_CENTER_X + index * CARD_WIDTH - x_offset
+	var x_offset = (PLAYER_HAND.size() - 1) * CARD_WIDTH 
+	var x_position = SCREEN_CENTER_X + index * CARD_WIDTH - x_offset / 2
 	return x_position
 	
 func animate_card_to_position(card, new_position):

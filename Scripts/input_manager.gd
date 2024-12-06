@@ -6,12 +6,17 @@ signal left_release_mouse_button
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
 
+const STARTING_HAND_SIZE = 5
+
 var card_manager_reference
 var deck_reference
 
 func _ready():
 	card_manager_reference = $"../CardManager"
-	deck_reference = $"../Deck"
+	deck_reference = $"../ResourceDeck"
+	
+	for i in range(STARTING_HAND_SIZE):
+		deck_reference.draw_card()
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_deck = ["Food", "Food", "Food"]
+var player_deck = ["Food", "Food", "Food", "Food", "Food", "Food", "Food", "Food", "Food"]
 const CARD_SCENE_PATH = "res://Scenes/card.tscn" 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1ekfmbrj3g2g"]
+[gd_scene load_steps=10 format=3 uid="uid://b1ekfmbrj3g2g"]
 
 [ext_resource type="Script" path="res://Scripts/CardManager.gd" id="1_gvaan"]
 [ext_resource type="PackedScene" uid="uid://7nkw36w4dthb" path="res://Scenes/CardSlot.tscn" id="3_lxbej"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_22ww1"]
 [ext_resource type="Script" path="res://Scripts/card_slot.gd" id="4_s07u4"]
-[ext_resource type="Script" path="res://Scenes/deck.gd" id="5_imdh7"]
+[ext_resource type="Script" path="res://Scripts/deck.gd" id="5_imdh7"]
 [ext_resource type="Texture2D" uid="uid://biv46nyb7qewd" path="res://Assets/Deck.png" id="5_x6iim"]
-[ext_resource type="Script" path="res://Scenes/input_manager.gd" id="7_7ytqh"]
+[ext_resource type="Script" path="res://Scripts/input_manager.gd" id="7_7ytqh"]
+[ext_resource type="Script" path="res://Scripts/panda_deck.gd" id="8_cbuvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t52wx"]
 size = Vector2(259, 404)
@@ -17,28 +18,39 @@ size = Vector2(259, 404)
 script = ExtResource("1_gvaan")
 
 [node name="CardSlot" parent="." instance=ExtResource("3_lxbej")]
-position = Vector2(603, 294)
+position = Vector2(1436, 232)
 script = ExtResource("4_s07u4")
 
 [node name="PlayerHand" type="Node2D" parent="."]
 script = ExtResource("4_22ww1")
 
-[node name="Deck" type="Node2D" parent="."]
-position = Vector2(184, 850)
+[node name="ResourceDeck" type="Node2D" parent="."]
+position = Vector2(1740, 231)
 script = ExtResource("5_imdh7")
 
-[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+[node name="Sprite2D" type="Sprite2D" parent="ResourceDeck"]
 z_index = -2
 scale = Vector2(1.43889, 1.52453)
 texture = ExtResource("5_x6iim")
 
-[node name="Area2D" type="Area2D" parent="Deck"]
+[node name="Area2D" type="Area2D" parent="ResourceDeck"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResourceDeck/Area2D"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_t52wx")
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource("7_7ytqh")
+
+[node name="PandaDeck" type="Node2D" parent="."]
+position = Vector2(246, 249)
+script = ExtResource("8_cbuvh")
+
+[node name="Sprite2D" type="Sprite2D" parent="PandaDeck"]
+position = Vector2(-1.33514e-05, -0.999985)
+scale = Vector2(1.44444, 1.52453)
+texture = ExtResource("5_x6iim")
+
+[node name="PandaManager" type="Node2D" parent="."]
