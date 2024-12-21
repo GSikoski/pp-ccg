@@ -26,3 +26,6 @@ func draw_card():
 	$"../CardManager".add_child(new_card)
 	new_card.name = "Card"
 	$"../PlayerHand".add_card_to_hand(new_card)
+	if card_drawn == "Food":
+		new_card.value = 2
+		new_card.get_node("Value").text = str(new_card.value)

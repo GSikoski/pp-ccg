@@ -31,4 +31,7 @@ func draw_card():
 	var new_card = card_scene.instantiate()
 	$"../PandaManager".add_child(new_card)
 	new_card.name = "Panda"
+	if card_drawn == "Panda":
+		new_card.cost = 5
+		new_card.get_node("Cost").text = str(new_card.cost)
 	add_card_to_board(new_card)
