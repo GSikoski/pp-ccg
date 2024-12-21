@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1ekfmbrj3g2g"]
+[gd_scene load_steps=9 format=3 uid="uid://b1ekfmbrj3g2g"]
 
 [ext_resource type="Script" path="res://Scripts/CardManager.gd" id="1_gvaan"]
-[ext_resource type="PackedScene" uid="uid://7nkw36w4dthb" path="res://Scenes/CardSlot.tscn" id="3_lxbej"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_22ww1"]
-[ext_resource type="Script" path="res://Scripts/card_slot.gd" id="4_s07u4"]
 [ext_resource type="Script" path="res://Scripts/deck.gd" id="5_imdh7"]
 [ext_resource type="Texture2D" uid="uid://biv46nyb7qewd" path="res://Assets/Deck.png" id="5_x6iim"]
 [ext_resource type="Script" path="res://Scripts/input_manager.gd" id="7_7ytqh"]
+[ext_resource type="Script" path="res://Scripts/counter.gd" id="7_htwik"]
 [ext_resource type="Script" path="res://Scripts/panda_deck.gd" id="8_cbuvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t52wx"]
@@ -16,10 +15,6 @@ size = Vector2(259, 404)
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_gvaan")
-
-[node name="CardSlot" parent="." instance=ExtResource("3_lxbej")]
-position = Vector2(1436, 232)
-script = ExtResource("4_s07u4")
 
 [node name="PlayerHand" type="Node2D" parent="."]
 script = ExtResource("4_22ww1")
@@ -54,3 +49,17 @@ scale = Vector2(1.44444, 1.52453)
 texture = ExtResource("5_x6iim")
 
 [node name="PandaManager" type="Node2D" parent="."]
+
+[node name="BuyButton" type="Node2D" parent="."]
+
+[node name="Counter" type="Node2D" parent="."]
+script = ExtResource("7_htwik")
+
+[node name="Total" type="RichTextLabel" parent="Counter"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 88.0
+offset_top = 468.0
+offset_right = 241.0
+offset_bottom = 493.0
+scale = Vector2(3, 3)
+text = "Total Value: 0"

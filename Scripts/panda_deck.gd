@@ -19,7 +19,6 @@ func add_card_to_board(new_card):
 	tween.tween_property(new_card, "position", PANDA_POS, 0.1)
 
 func draw_card():
-	print("Panda drawn")
 	var card_drawn = panda_deck[0]
 	panda_deck.erase(card_drawn)
 	

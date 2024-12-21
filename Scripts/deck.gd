@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	pass
 
 func draw_card():
-	print("Card drawn")
 	var card_drawn = player_deck[0]
 	player_deck.erase(card_drawn)
 	
