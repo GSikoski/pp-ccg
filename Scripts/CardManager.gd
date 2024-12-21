@@ -52,17 +52,18 @@ func connect_card_signals(card):
 	card.connect("hover_off", off_hover)
 	
 func on_hover(card):
-	if !is_hovering_on_card:
+	if !is_hovering_on_card and card not in selected_cards:
 		is_hovering_on_card = true
 		highlight_card(card, true)
 	
 func off_hover(card):
-	var temp_card = raycast_check_for_card()
-	highlight_card(card, false)
-	if temp_card:
-		highlight_card(temp_card, true)
-	else:
-		is_hovering_on_card = false
+	if card not in selected_cards:
+		var temp_card = raycast_check_for_card()
+		highlight_card(card, false)
+		if temp_card:
+			highlight_card(temp_card, true)
+		else:
+			is_hovering_on_card = false
 
 func highlight_card(card, is_hover):
 	if is_hover:
