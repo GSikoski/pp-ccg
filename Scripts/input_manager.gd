@@ -5,6 +5,8 @@ signal left_release_mouse_button
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_DECK = 4
+const COLLISION_MASK_BUY = 16
+
 
 const STARTING_HAND_SIZE = 5
 
@@ -42,5 +44,7 @@ func raycast_at_cursor():
 					card_manager_reference.start_select(card_found)
 			COLLISION_MASK_DECK:
 				deck_reference.draw_card()
+			_:
+				card_manager_reference.buy()
 			
 		

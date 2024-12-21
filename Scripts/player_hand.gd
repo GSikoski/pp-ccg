@@ -39,8 +39,14 @@ func calculate_card_position(index):
 func animate_card_to_position(card, new_position):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "position", new_position, 0.1)
+	
 
-func remove_card_from_hand(card):
+func remove_card_from_hand(card, disc):
 	if card in PLAYER_HAND:
 		PLAYER_HAND.erase(card)
-		update_hand_positions()
+		if !disc:
+			update_hand_positions()
+		else:
+			card.queue_free()
+			update_hand_positions()
+	
