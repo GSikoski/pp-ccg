@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1ekfmbrj3g2g"]
+[gd_scene load_steps=14 format=3 uid="uid://b1ekfmbrj3g2g"]
 
 [ext_resource type="Script" path="res://Scripts/CardManager.gd" id="1_gvaan"]
 [ext_resource type="Script" path="res://Scripts/player_hand.gd" id="4_22ww1"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://Scripts/counter.gd" id="7_htwik"]
 [ext_resource type="Script" path="res://Scenes/buy_button.gd" id="7_tetgs"]
 [ext_resource type="Script" path="res://Scripts/panda_deck.gd" id="8_cbuvh"]
+[ext_resource type="Script" path="res://Scenes/game_manager.gd" id="9_c3v1r"]
+[ext_resource type="FontFile" uid="uid://c2jq5uibm32rh" path="res://Fonts/Montserrat-VariableFont_wght.ttf" id="9_f4wdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t52wx"]
 size = Vector2(259, 404)
@@ -94,3 +96,17 @@ offset_right = -68.0
 offset_bottom = -6.0
 scale = Vector2(3, 3)
 text = "Total Value: 0"
+
+[node name="Game Manager" type="Node2D" parent="."]
+script = ExtResource("9_c3v1r")
+
+[node name="VictoryText" type="RichTextLabel" parent="Game Manager"]
+visible = false
+top_level = true
+offset_left = 367.0
+offset_top = 474.0
+offset_right = 1687.0
+offset_bottom = 1024.0
+theme_override_fonts/normal_font = ExtResource("9_f4wdh")
+theme_override_font_sizes/normal_font_size = 300
+text = "You Win!"
