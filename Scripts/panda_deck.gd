@@ -4,6 +4,7 @@ var panda_deck = ["Panda", "Panda", "Panda", "Panda", "Panda", "Panda"]
 const CARD_SCENE_PATH = "res://Scenes/buyable_panda.tscn"
 var panda_on_table = false
 const PANDA_POS = Vector2(544, 245)
+var current_card
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,3 +35,4 @@ func draw_card():
 		new_card.cost = 5
 		new_card.get_node("Cost").text = str(new_card.cost)
 	add_card_to_board(new_card)
+	current_card = new_card

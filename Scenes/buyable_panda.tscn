@@ -14,6 +14,8 @@ script = ExtResource("1_u4tap")
 texture = ExtResource("1_ff44e")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -0.5)
