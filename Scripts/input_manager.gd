@@ -33,10 +33,8 @@ func raycast_at_cursor():
 	parameters.position = get_global_mouse_position()
 	parameters.collide_with_areas = true
 	var result = space_state.intersect_point(parameters)
-	print(result)
 	if result.size() > 0:
 		var result_collision_mask = result[0].collider.collision_mask
-		print(result_collision_mask)
 		match result_collision_mask:
 			COLLISION_MASK_CARD:
 				var card_found = result[0].collider.get_parent()

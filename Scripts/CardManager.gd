@@ -4,6 +4,7 @@ var screen_size
 var is_hovering_on_card
 var player_hand
 var selected_cards = []
+var selected_value = 0
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_SLOT = 2
@@ -78,8 +79,10 @@ func start_select(card):
 	if card not in selected_cards:
 		selected_cards.append(card)
 		card.scale = Vector2(1.1, 1.1)
-		print("card was selected")
+		selected_value = selected_value + card.value
+		$"../Counter".update_total()
 	else:
 		selected_cards.erase(card)
 		card.scale = Vector2(1, 1)
-		print("card was de-selected")
+		selected_value = selected_value - card.value
+		$"../Counter".update_total()
