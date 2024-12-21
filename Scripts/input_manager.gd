@@ -44,7 +44,7 @@ func raycast_at_cursor():
 					card_manager_reference.start_select(card_found)
 			COLLISION_MASK_DECK:
 				deck_reference.draw_card()
-			_:
+			COLLISION_MASK_BUY:
 				card_manager_reference.buy()
 			
 		

@@ -96,10 +96,10 @@ func buy():
 		panda_deck_ref.current_card.queue_free()
 		panda_deck_ref.draw_card()
 		for card in selected_cards.duplicate():
-			print(selected_cards)
 			selected_cards.erase(card)
-			print(selected_cards)
 			card.scale = Vector2(1, 1)
 			player_hand.remove_card_from_hand(card, true)
+		selected_value = 0
+		$"../Counter".update_total()
 	else:
 		print("Can't buy")
