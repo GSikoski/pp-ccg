@@ -6,7 +6,7 @@ var player_hand
 var selected_cards = []
 var selected_value = 0
 var panda_deck_ref
-var party = []
+var game_manager_ref
 
 const COLLISION_MASK_CARD = 1
 const COLLISION_MASK_SLOT = 2
@@ -16,6 +16,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	player_hand = $"../PlayerHand"
 	panda_deck_ref = $"../PandaDeck"
+	game_manager_ref = $"../Game Manager"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -92,7 +93,7 @@ func start_select(card):
 		
 func buy():
 	if selected_value > panda_deck_ref.current_card.cost:
-		party.append(panda_deck_ref.current_card)
+		game_manager_ref.party.append(panda_deck_ref.current_card)
 		panda_deck_ref.current_card.queue_free()
 		panda_deck_ref.draw_card()
 		for card in selected_cards.duplicate():
@@ -101,5 +102,6 @@ func buy():
 			player_hand.remove_card_from_hand(card, true)
 		selected_value = 0
 		$"../Counter".update_total()
+		game_manager_ref.check_win()
 	else:
 		print("Can't buy")
